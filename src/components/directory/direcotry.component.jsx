@@ -6,13 +6,10 @@ const Directory = ({categories}) => {
         <div className='directory-container'>
       {
         categories.map(({title, id, imageUrl}) => (
-          <div key={id} className='directory-container'>
             <CategoryItem key={id} title={title} imageUrl={imageUrl} />
-          </div>
-        ))
-      }
+        ))}
     </div>
-  )
+  );
 }
 
 export default Directory;
