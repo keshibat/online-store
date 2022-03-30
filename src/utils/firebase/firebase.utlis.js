@@ -50,7 +50,7 @@ export const createUserDocumentFromAuth = async(userAuth) => {
         createdAt
       })
     } catch (error) {
-      console.log('error creatign the user', error.message);
+      console.error('error creatign the user', error.message);
     }
   }
   return userDocRef;
