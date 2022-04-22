@@ -1,8 +1,12 @@
 import { useState } from 'react';
+
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utlis';
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth
+} from '../../utils/firebase/firebase.utlis';
 
 import './sign-up-form.styles.scss';
 
@@ -23,12 +27,14 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if(password !== confirmPassword) {
       alert("passwords do no match")
       return;
-    } try {
+    }
+
+    try {
         const { user } = await createAuthUserWithEmailAndPassword(email, password);
-        setCurrentUser(user);
         await createUserDocumentFromAuth(user, { displayName })
         resetFormFields();
     } catch(error) {
