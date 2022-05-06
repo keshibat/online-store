@@ -2,7 +2,10 @@ import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
-import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utlis';
+import {
+  signInWithGooglePopup,
+  signInAuthUserWithEmailAndPassword
+} from '../../utils/firebase/firebase.utlis';
 
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 
@@ -21,11 +24,11 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
      await signInWithGooglePopup();
-
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
      try {
       await signInAuthUserWithEmailAndPassword(email, password);
        resetFormFields();
@@ -45,6 +48,7 @@ const SignInForm = () => {
 
   const handleChange = (event) => {
     const {name, value } = event.target;
+
     setFormFields({...formFields, [name]: value});
   };
 
