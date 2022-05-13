@@ -29,6 +29,8 @@ const firebaseConfig = {
   appId: "1:803520292040:web:a142647aca25fa9e2131fd"
 };
 
+
+
 const firebaseApp = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
@@ -96,7 +98,7 @@ export const createUserDocumentFromAuth = async (
     }
   }
 
-  return userDocRef;
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -125,6 +127,6 @@ export const getCurrentUser = () => {
         resolve(userAuth);
       },
       reject
-    )
-  })
-}
+    );
+  });
+};
